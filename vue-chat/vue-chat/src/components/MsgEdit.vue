@@ -1,0 +1,39 @@
+<script>
+
+export default {
+  data () {
+    return {
+      content: ''
+    }
+  },
+  methods: {
+    sendMsg () {
+      this.$emit('sendMsg', this.content)
+      this.content = ''
+    }
+  }
+}
+</script>
+
+<template>
+<div class="text">
+    <textarea placeholder="按 Ctrl + Enter 发送" v-model="content" @keyup.ctrl.enter="sendMsg" @keyup.enter="sendMsg"></textarea>
+</div>
+</template>
+
+<style lang="less" scoped>
+.text {
+    height: 160px;
+    border-top: solid 1px #ddd;
+
+    textarea {
+        padding: 10px;
+        height: 100%;
+        width: 100%;
+        border: none;
+        outline: none;
+        font-family: "Micrsofot Yahei";
+        resize: none;
+    }
+}
+</style>
